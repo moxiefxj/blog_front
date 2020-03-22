@@ -7,9 +7,20 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.7.0",
     "core-js": "^3.6.4",
+    "github-markdown-css": "^4.0.0",
+    "jquery": "^3.4.1",
+    "markdown-it": "^10.0.0",
+    "marked": "^0.8.1",
+    "mavon-editor": "^2.7.7",
+    "popper.js": "^1.16.1",
+    "showdown": "^1.9.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.1.5"
+    "vue-router": "^3.1.5",
+    "vuetify": "^2.2.18"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
