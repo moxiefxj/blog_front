@@ -1,45 +1,65 @@
-//src/components/Navbar.vue
 <template>
-    <div>
-      <b-navbar toggleable="lg" type="dark">
-        <b-navbar-brand href="/">Feng Xiaojing</b-navbar-brand>
+    <el-menu :default-active="this.$route.path"
+    class="el-menu-demo"
+    mode="horizontal"
+    background-color="#C5CAE9"
+    text-color="#606266"
+    active-text-color="#00796B"
+    router>
+      <el-menu-item class="logo" index="/">FENG XIAOJING</el-menu-item>
+      <el-menu-item index="/">首页</el-menu-item>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <el-submenu index="/kinds">
+        <template slot="title">分类</template>
+        <el-submenu index="/kinds/basics">
+          <template slot="title">basics</template>
+            <el-menu-item index="/kinds/basics/dataStrure">dataStrure</el-menu-item>
+            <el-menu-item index="/kinds/basics/net">net</el-menu-item>
+        </el-submenu>
+        <el-submenu index="/kinds/front">
+          <template slot="title">front</template>
+            <el-menu-item index="/kinds/front/vue">vue</el-menu-item>
+            <el-menu-item index="/kinds/front/css">css</el-menu-item>
+            <el-menu-item index="/kinds/front/js">js</el-menu-item>
+        </el-submenu>
 
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
-            <b-nav-item class="nav_skip" href="/">首页</b-nav-item>
-            <b-nav-item class="nav_skip" href="/about">关于我</b-nav-item>
-            <b-nav-item class="nav_skip" href="/leaveComments">留言</b-nav-item>
-          </b-navbar-nav>
+        <el-submenu index="/kinds/test">
+          <template slot="title">test</template>
+            <el-menu-item index="/kinds/test/unit">unit</el-menu-item>
+            <el-menu-item index="/kinds/test/performance">performance</el-menu-item>
+            <el-menu-item index="/kinds/text/box">box</el-menu-item>
+        </el-submenu>
 
-          <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto">
-            <b-nav-form>
-              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-            </b-nav-form>
+        <el-submenu index="/kinds/back">
+          <template slot="title">back</template>
+            <el-menu-item index="/kinds/back/ssm">ssm</el-menu-item>
+            <el-menu-item index="/kinds/back/springboot">springboot</el-menu-item>
+            <el-menu-item index="/kinds/back/node">node</el-menu-item>
+        </el-submenu>
 
-        <!-- <b-nav-item-dropdown right>
+        <el-submenu index="/kinds/other">
+          <template slot="title">other</template>
+          <el-menu-item index="/kinds/other/doucument">doucument</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="/about">关于我</el-menu-item>
+      <el-menu-item index="/leaveComments">留言</el-menu-item>
+      
+    </el-menu>
 
-          <template v-slot:button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown> -->
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
 </template>
-<script>
-export default {
-}    
-</script>
 
+<script>
+  export default {
+  }
+</script>
 <style>
-  .nav_skip{
-    margin-left: 40px;
+  .el-header{
+    padding: 0px !important;
+  }
+  .logo{
+    margin:0 30px !important;
   }
 </style>
+  
+

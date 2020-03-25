@@ -12,7 +12,7 @@
             <!-- 分类、赞、浏览 -->
             <div class="msg"></div>
             <!-- 内容 -->
-            <div class="character markdown-body" v-html="item">
+            <div class="markdown-body" v-html="item">
                 {{item}}
             </div>
         </div>
@@ -45,8 +45,6 @@ export default {
             this.essay = response.data[0]
             var marked = require('marked')
             this.item = marked(this.essay.character)
-            
-            console.log(this.essay[0].character)
         }).catch(response => {
             console.log(response)
         })    
