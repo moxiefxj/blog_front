@@ -17,15 +17,19 @@
       
       <el-row class="skills">
         <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">前端</el-col>
-        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress></el-col>
+        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="80"></el-progress></el-col>
       </el-row>
       <el-row class="skills">
         <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">java</el-col>
-        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress></el-col>
+        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="75"></el-progress></el-col>
       </el-row>
       <el-row class="skills">
         <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">node</el-col>
         <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress></el-col>
+      </el-row>
+      <el-row class="skills">
+        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">c语言</el-col>
+        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="65"></el-progress></el-col>
       </el-row>
     </div>
     
@@ -41,6 +45,9 @@
 </template>
 
 <style scoped>
+    .about{
+      background: #FAFAFA;
+    }
     .skills{
       margin-top: 20px;
     }
@@ -68,7 +75,7 @@
     }
     .basic{
       text-align: center;
-      background: #E8EAF6;
+      /* background: #E8EAF6; */
       font-size: 18px;
     }
     .basic p{

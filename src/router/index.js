@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import leaveComments from '../views/leaveComments.vue'
 import essay from '../views/essay.vue'
 import kinds from '../views/kinds.vue'
+import time from '../views/time.vue'
 
 Vue.use(VueRouter)
 
@@ -18,7 +19,7 @@ const routes = [
   {
     path:'/p/:id',
     name:essay,
-    component:essay
+    component:essay,
   },
   // 分类
   {
@@ -32,6 +33,12 @@ const routes = [
       }
     },
     component:kinds
+  },
+  // 时间线
+  {
+    path: '/time',
+    name: time,
+    component:time
   },
   // 关于我
   {

@@ -7,7 +7,11 @@
     active-text-color="#00796B"
     router> 
       <el-menu-item class="logo">FENG XIAOJING</el-menu-item>
-      <el-menu-item index="/">首页</el-menu-item>
+      <el-submenu class="b_fold" index="/">
+          <template slot="title">
+              <i class="el-icon-s-unfold el-icon-s-fold"></i>
+            </template>
+          <el-menu-item index="/">首页</el-menu-item>
 
       <el-submenu index="/kinds">
         <template slot="title">分类</template>
@@ -42,21 +46,12 @@
           <el-menu-item index="/kinds/other/doucument">doucument</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="/time">时间线</el-menu-item>
-      
       <el-menu-item index="/about">关于我</el-menu-item>
       <el-menu-item index="/leaveComments">留言</el-menu-item>  
+      </el-submenu>
       
     </el-menu>
-
 </template>
-<style>
-  .el-header{
-    padding: 0px !important;
-  }
-  .logo{
-    margin:0 30px !important;
-  }
-</style>
-  
 
+<style>
+</style>

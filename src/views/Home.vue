@@ -1,12 +1,16 @@
 <template>
   <div id="home">
+    <el-row class="slideshow">
+      <slide-com></slide-com>
+    </el-row>
+    
     <el-row class="main" :gutter="20">
       <el-col :xs="{span:24,offset:0}" :sm="{span:16,offset:0}" :md="{span:16,offset:2}">
         <div>
           <essaylist-com :essaylist = 'essaylist'></essaylist-com>
         </div>
         </el-col>
-      <el-col :xs="{span:24,offset:0}" :sm="{span:7,offset:0}" :md="{span:6,offset:0}" >
+      <el-col :xs="{span:0,offset:0}" :sm="{span:7,offset:0}" :md="{span:6,offset:0}" >
         <div>
           <guess-com></guess-com>
         </div>
@@ -19,12 +23,15 @@
 
 import guessCom from '../components/guessCom'
 import essaylistCom from '../components/essaylistCom';
+import slideCom from '../components/slideCom'
+import {totext,totime} from '../js/common/essay'
 
 export default {
   name: 'Home',
   components:{
     guessCom,
-    essaylistCom
+    essaylistCom,
+    slideCom
   },
   data() {
     return {
@@ -34,30 +41,19 @@ export default {
     }
   },
   async beforeCreate() {
-    var marked = require('marked')
     this.$http.get('http://localhost:3000/essay/list').then(response => {
       this.essaylist = response.data
-      // console.log(this.essaylist[0])
+      
       for (let item in this.essaylist) {
-        let html = marked(this.essaylist[item].character)
-        this.essaylist[item].character = this.totext(html)
+        // 标准文章
+        this.essaylist[item].character = totext(this.essaylist[item].character)
+        // 标准化时间
+        this.essaylist[item].send_time = totime(this.essaylist[item].send_time)
       }
       }).catch(response => {
           console.log(response)
-      })
-    
-    
+      })    
   },
-  methods: {
-    totext: function(HTML){
-      var input = HTML;
-      let result = input.replace(/<(style|script|iframe)[^>]*?>[\s\S]+?<\/\1\s*>/gi,'').replace(/<[^>]+?>/g,'').replace(/\s+/g,' ').replace(/ /g,' ').replace(/>/g,' ');  
-      if(result.length >45){
-        result = result.substring(0,45)+'...'
-      }
-      return result
-    },
-  }
 }
 </script>
 
