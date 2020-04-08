@@ -1,15 +1,18 @@
-async function addBrowse(http,id){
-    http.get('http://localhost:3000/browse/add',{
-        params:{
-            id:id
-        }
-    }).then(response => {
-        
-        return response
-    }).catch(response => {
-        console.log(response)
-    })
+class operation{
+    addBrowse(http,id){
+        http.get('/browse/add',{
+            params:{
+                id:id
+            }
+        })
+    }
+    like(http,id){
+        return http.get('/like/add',{
+            params:{
+                id:id
+            }
+        })
+    }
 }
-export {
-    addBrowse
-}
+
+export default operation

@@ -4,8 +4,7 @@
       <!-- 导航栏 -->
     <el-header>
       <nav-com v-if="fullWidth"></nav-com>
-      <navp-com v-else></navp-com>
-      
+      <navp-com v-else></navp-com> 
     </el-header>
     <!-- 主体 -->
     <el-main>
@@ -45,7 +44,7 @@ import footerCom from './components/footerCom'
     methods: {
       page_width() {//获取屏幕宽度
         let screenWidth = window.screen.width;
-        if (screenWidth < 600) {
+        if (screenWidth < 700) {
           this.fullWidth = false;
         } else {
           this.fullWidth = true;

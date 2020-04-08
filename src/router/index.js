@@ -5,6 +5,7 @@ import leaveComments from '../views/leaveComments.vue'
 import essay from '../views/essay.vue'
 import kinds from '../views/kinds.vue'
 import time from '../views/time.vue'
+import writeEssay from '../views/writeEssay.vue';
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,12 @@ const routes = [
     path: '/time',
     name: time,
     component:time
+  },
+  // 写文章
+  {
+    path: '/writeEssay',
+    name: writeEssay,
+    component : writeEssay
   },
   // 关于我
   {

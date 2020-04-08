@@ -21,9 +21,9 @@
                 <el-col :xs="{span:9,offset:1}" :sm="{span:14,offset:0}" :md="{span:12,offset:0}">
                   <el-link icon="el-icon-link" :underline="false">浏览数{{item.view}}</el-link>
                 </el-col>
-                <!-- 文章赞数 -->
+                <!-- 文章评论数 -->
                 <el-col :xs="{span:8,offset:1}" :sm="{span:9,offset:1}" :md="{span:10,offset:1}">
-                  <el-link @click="like(item.id,index)" icon="el-icon-thumb"  :underline="false">点赞{{item.like}}</el-link>
+                  <el-link icon="el-icon-chat-round" :underline="false">评论{{item.comments}}</el-link>
                 </el-col>
               </el-row>
             </el-col>
@@ -35,55 +35,7 @@
 <script>
 import {addBrowse} from '../js/browse_like'
 export default {
-    data() {
-      return {
-        high_quality_essaylist:[],
-      }
-    },
-    beforeCreate() {
-      var marked = require('marked')
-      this.$http.get('http://localhost:3000/essay/high_qualitylist').then(response => {
-      this.high_quality_essaylist = response.data
-      for (let item in this.high_quality_essaylist) {
-        let title = this.high_quality_essaylist[item].title
-        if (title.length > 10) {
-          this.high_quality_essaylist[item].title = title.substring(0,10)+'...'
-          
-        }
-      }
-      }).catch(response => {
-          console.log(response)
-      })
-    },
-    methods:{
-        detail : function(id){
-          // 跳转页面前， 浏览记录+1
-          addBrowse(this.$http,id)
-          // 跳转页面
-            this.$router.push({
-            path:'/p/'+id
-        })
-        },
-        like : function(id,index){
-          this.$http.get('http://localhost:3000/like/add',{
-              params:{
-                  id:id
-              }
-          }).then(response => {
-            if(response.data.status == 0){
-              // 已经点过赞
-              this.$message('已经点过赞了哟(＾Ｕ＾)ノ~ＹＯ');
-            }
-            else{
-              // 未点过赞,赞+1
-              this.high_quality_essaylist[index].like +=1 
-              this.$message('蟹蟹~ 你的喜欢(❤ ω ❤)');
-            }
-          }).catch(response => {
-              console.log(response)
-          })
-        }
-    },
+  props:['detail','high_quality_essaylist'],
     watch: {
       high_quality_essaylist(newValue, oldValue) {
       },

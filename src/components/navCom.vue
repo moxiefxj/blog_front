@@ -43,7 +43,7 @@
         </el-submenu>
       </el-submenu>
       <el-menu-item index="/time">时间线</el-menu-item>
-      
+      <el-menu-item index="/writeEssay">写文章</el-menu-item>
       <el-menu-item index="/about">关于我</el-menu-item>
       <el-menu-item index="/leaveComments">留言</el-menu-item>  
       

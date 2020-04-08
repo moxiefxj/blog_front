@@ -36,7 +36,7 @@
 
     // 从数据库中获取（year,month,day,title,kinds）
     beforeMount() {
-        this.$http.get('http://localhost:3000/time/timekinds').then(response => {
+        this.$http.get('/time/timekinds').then(response => {
             let result = response.data
             for (let item in result) {
               this.tolist(result[item])
