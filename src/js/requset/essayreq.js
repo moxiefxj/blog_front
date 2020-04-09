@@ -20,6 +20,20 @@ class essayreq{
     async get_high_quality_essaylist(http){
        return http.get('/essay/high_qualitylist')
     }
+    // 写入文章到数据库中
+    async writeEssay(http,essayimg,title,context){
+        return http.get('/essay/write',{
+            params:{
+                essayimg :essayimg,
+                title:title,
+                character:context
+            }
+        })
+    }
+    // 获取所有的种类
+    async getkind(http){
+        return http.get('/essay/getkind')
+    }
     
 }
 export default essayreq

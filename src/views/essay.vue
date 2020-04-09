@@ -3,7 +3,7 @@
         <el-backtop></el-backtop>
         <el-row>
             <!-- 文章详情 -->
-            <el-col class="essay" :xs="{span:24,offset:0}" :sm="{span:16,offset:0}" :md="{span:16,offset:1}">
+            <el-col class="essay" :xs="{span:24,offset:0}" :sm="{span:16,offset:0}" :md="{span:16,offset:0}">
                 <el-row class="et">
                      <!-- 标题 -->
                     <div class="title_t">
@@ -11,12 +11,8 @@
                     </div>
                 </el-row>
                 <el-row class="describe">
-                    <!-- 分类 -->
-                    <!-- <el-col :xs="{span:4,offset:0}" :sm="{span:4,offset:0}" :md="{span:4,offset:1}">
-                        <el-link class="flag" :underline="false">{{essay.kind_child}}</el-link>
-                    </el-col> -->
                     <!-- 作者 -->
-                    <el-col :xs="{span:5,offset:2}" :sm="{span:4,offset:2}" :md="{span:3,offset:2}">
+                    <el-col :xs="{span:5,offset:2}" :sm="{span:4,offset:2}" :md="{span:3,offset:1}">
                         <el-link href="/about" icon="el-icon-user" :underline="false">冯筱静</el-link>
                     </el-col>
                     <!-- 时间 -->
@@ -199,8 +195,8 @@ export default {
 
 <style scoped>
     .essay{
-        margin: 0;
-        padding: 0;
+        /* margin: 0;
+        padding: 0; */
         background: #FAFAFA;
     }
     .title_t{
@@ -229,5 +225,6 @@ export default {
     }
     .describe{
         width: 100%;
+        margin-bottom: 10px;
     }
 </style>

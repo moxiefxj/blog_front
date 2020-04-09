@@ -1,15 +1,30 @@
 <template>
   <div class="about">
     <div class="aboutme">
-      <p class="resume">个人简介</p>
-      <p class="name">冯筱静</p>
-       <!-- 基本信息 -->
-       <div class="basic">
-        <p>Email:</p>
-        <p>wechat:</p>
-        <p>Github:</p>
-        <p>blog:</p>
+      <p class="resume">About Me</p>
+        <!-- 基本信息 -->
+      <div class="basic">
+        <p>就读大学：电子科技大学成都学院</p>
+        <p>掌握技术：</p>
+        <p>
+          熟练html5、css3、js、bootstrap等技术<br>
+          熟练vue、node、elementUI等框架<br>
+          了解spring、springMVC、mybatis<br>
+        </p>
+        
       </div>
+      
+      <el-row class="basicimg">
+          <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
+            <img src="../assets/img/email.jpg" alt="">
+          </el-rol>
+          <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
+            <img src="../assets/img/OTE0YTAw.png" alt="">
+          </el-rol>
+          <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
+            <img src="../assets/img/fluidicon.png" alt="">
+          </el-rol> 
+      </el-row>
     </div>
     <!-- 个人技能树 -->
     <div class="aboutme">
@@ -33,10 +48,14 @@
       </el-row>
     </div>
     
-    
     <!-- 项目经验 -->
     <div class="aboutme">
       <p class="resume">项目经验</p>
+      <el-row>
+        <el-col :span="12"></el-col>
+        <el-col :span="12"></el-col>
+      </el-row>
+      
     </div>
     <!-- 其他信息 -->
     
@@ -44,6 +63,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+    }
+  },
+}
+</script>
 <style scoped>
     .about{
       background: #FAFAFA;
@@ -74,11 +101,22 @@
       font-weight: bold;
     }
     .basic{
+      margin:0 auto;
+      width:320px;
+      border:1px solid;
+      text-align:left;
+
+      /* margin-bottom: 30px;
       text-align: center;
-      /* background: #E8EAF6; */
-      font-size: 18px;
+      font-size: 18px; */
     }
-    .basic p{
-      padding-bottom: 10px;
+    .basicimg{
+      text-align: center;
+    }
+    .basicimg img{
+      width: 5%;
+      height: 5%;
+      border-radius: 100%;
+      margin-right: 20px;
     }
 </style>
