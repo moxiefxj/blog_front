@@ -63,13 +63,11 @@ import showdown from 'showdown'
 import 'github-markdown-css'
 import guessCom from '../components/guessCom'
 
-import breadCom from '../components/common/breadCom'
 import commentlistCom from '../components/commentlistCom'
 import commentCom from '../components/common/commentCom'
 
 export default {
     components:{
-        breadCom,
         guessCom,
         commentlistCom,
         commentCom

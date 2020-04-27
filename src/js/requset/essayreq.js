@@ -21,18 +21,24 @@ class essayreq{
        return http.get('/essay/high_qualitylist')
     }
     // 写入文章到数据库中
-    async writeEssay(http,essayimg,title,context){
+    async writeEssay(http,form){
+        console.log("进来了")
+        console.log(form)
         return http.get('/essay/write',{
             params:{
-                essayimg :essayimg,
-                title:title,
-                character:context
+                ...form
             }
         })
     }
     // 获取所有的种类
     async getkind(http){
         return http.get('/essay/getkind')
+    }
+    async get_techlist(http){
+        return http.get("/essay/get_techlist")
+    }
+    async get_notelist(http){
+        return http.get("/essay/get_notelist")
     }
     
 }

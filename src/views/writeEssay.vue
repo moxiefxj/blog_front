@@ -1,12 +1,12 @@
 <template>
     <div>
         <el-form ref="form" :rules="rules" :model="form" label-width="80px">
-            <el-form-item label="标题">
-                <el-input v-model="title" class="inputsize" placeholder="请输入标题"></el-input>
+            <el-form-item label="标题" prop='title'>
+                <el-input v-model="form.title" class="inputsize" placeholder="请输入标题"></el-input>
             </el-form-item>
             <el-form-item label="标签">
                 <el-cascader
-                    v-model="tag"
+                    v-model="form.tag"
                     :options="options"
                     :props="{ checkStrictly: true }"
                     filterable>
@@ -15,21 +15,33 @@
             
             <el-form-item label="文章图片">
                 <el-upload
-                    class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    with-credentials = 'true'
+                    :on-change="loadJsonFromFile"
+                    class="avatar-uploader"
+                    :action="$http.defaults.baseURL + '/upload'"
                     :on-preview="handlePreview"
                     :on-remove="handleRemove"
-                    :file-list="fileList"
+                    
+                    :file-list="form.fileList"
                     list-type="picture">
                     <el-button size="small" type="primary">点击上传</el-button>
                 </el-upload>
+                <!-- <el-upload
+                    class="avatar-uploader"
+                    :action="$http.defaults.baseURL + '/upload'"
+                    :show-file-list="false"
+                    :on-success="afterUpload"
+                >
+                </el-upload> -->
             </el-form-item>
-        
-        <mavon-editor v-model="context" :toolbars="toolbars" />
-        <el-row class="submitbtn">
-            <el-button type="success" @click="submitMsg()" round>提交</el-button>
-            <el-button type="danger" round>取消</el-button>                
-        </el-row>
+            <el-form-item label="内容">
+                <mavon-editor v-model="form.context" :toolbars="toolbars" />
+            </el-form-item>
+            <el-form-item class="submitbox">
+              <el-button type="success"  @click="submitMsg('form')" round>提交</el-button>
+              <el-button type="danger" @click="resetForm('form')" round>取消</el-button>      
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 <script>
@@ -37,10 +49,20 @@
 export default {
     data() {
         return {
-            context: ' ',//输入的数据
-            title:'',
-            fileList: [],
-            tag:'',
+            
+            form:{
+                context: ' ',//输入的数据
+                title:'',
+                tag:'',
+                fileList: [],
+            },
+            fileSizeIsSatisfy:'',
+            rules:{
+                title: [
+                    { required: true, message: '请输入标题', trigger: 'blur' },
+                ],
+
+            },
             toolbars: {
                 bold: true, // 粗体
                 italic: true, // 斜体
@@ -126,29 +148,52 @@ export default {
     beforeMount() {
     },
     methods: {
-        async submitMsg(){
-            if(this.context == '' || this.context.length <= 20){
-                console.log("失败")
-                this.$notify.error({
-                    title: '字有点少哦'
-                });
+        loadJsonFromFile(file, fileList) {
+            this.form.fileList = fileList[0].raw
+            // 限制文件大小
+            var sizeIsSatisfy = file.size < 2 * 1024 * 1024 ? true : false;
+            if (sizeIsSatisfy) {
+                return true;
+            } else {
+                this.fileSizeIsSatisfy = true;
+                return false;
             }
-            else{
-                console.log(this.context)
-                console.log(this.title)
-                console.log(this.fileList)
-                console.log(this.tag)
-                
-                // let res = await this.essayreq.writeEssay(this.$http,essayimg,title,context)
+        },
+        submitMsg(formName){
+            this.$refs[formName].validate((valid) => {
+                if(valid){
+                    if(this.form.tag == ''){
+                        this.$message.error('请选择类别');
+                        return;
+                    }
+                    if (this.form.fileList.length <= 0) {
+                        this.$message.error("请上传封面");
+                        return;
+                    }
+                    if (this.form.fileSizeIsSatisfy) {
+                        this.$message.error("上传失败！存在文件大小超过2M！");
+                        return;
+                    }
+                    if(this.form.context == '' || this.form.context.length <= 20){
+                        this.$message.error("内容字有点少");
+                        return;
+                    }
+                    this.essayreq.writeEssay(this.$http,this.form)
+                }
+            })
+        },
+        processFile(){
 
-            }
-        }
+        },
+        resetForm(formName) {
+            this.$refs[formName].resetFields();
+        },
     },
 }
 </script>
 
 <style>
-    .submitbtn{
+    .submitbox{
         margin: 20px;
         text-align: right;
     } 

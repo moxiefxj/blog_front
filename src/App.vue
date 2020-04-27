@@ -3,8 +3,8 @@
     <el-container>
       <!-- 导航栏 -->
     <el-header>
-      <nav-com v-if="fullWidth"></nav-com>
-      <navp-com v-else></navp-com> 
+      <nav-com v-if="fullWidth" :navData = "navData"></nav-com>
+      <navp-com v-else :navData = "navData"></navp-com> 
     </el-header>
     <!-- 主体 -->
     <el-main>
@@ -33,6 +33,33 @@ import footerCom from './components/footerCom'
     data() {
       return {
         fullWidth: true,
+        navData:[
+          {
+                name: "首页",
+                url: "/",
+                icon: "el-icon-menu"
+            },
+            {
+                name: "技术",
+                url: "/tech",
+                icon: "el-icon-paperclip"
+            },
+            {
+                name: "日常",
+                url: "/note",
+                icon: "el-icon-star-off"
+            },
+            {
+                name: "关于我",
+                url: "/about",
+                icon: "el-icon-coordinate"
+            },
+            {
+                name: "留言",
+                url: "/leavecomments",
+                icon: "el-icon-collection"
+            }
+        ],
       }
     },
     mounted() {
@@ -44,7 +71,7 @@ import footerCom from './components/footerCom'
     methods: {
       page_width() {//获取屏幕宽度
         let screenWidth = window.screen.width;
-        if (screenWidth < 700) {
+        if (screenWidth < 780) {
           this.fullWidth = false;
         } else {
           this.fullWidth = true;

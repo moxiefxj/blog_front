@@ -6,6 +6,9 @@ import essay from '../views/essay.vue'
 import kinds from '../views/kinds.vue'
 import time from '../views/time.vue'
 import writeEssay from '../views/writeEssay.vue';
+import login from "../views/login.vue";
+import tech from "../views/tech.vue"
+import note from "../views/note.vue"
 
 Vue.use(VueRouter)
 
@@ -22,6 +25,16 @@ const routes = [
     name:essay,
     component:essay,
   },
+  // 技术
+  {
+    path:"/tech",
+    component:tech,
+  },
+  // 日常
+  {
+    path:"/note",
+    component:note,
+  },
   // 分类
   {
     path:'/kinds/:kind/:kind_child',
@@ -35,31 +48,21 @@ const routes = [
     },
     component:kinds
   },
-  // 时间线
-  {
-    path: '/time',
-    name: time,
-    component:time
-  },
-  // 写文章
-  {
-    path: '/writeEssay',
-    name: writeEssay,
-    component : writeEssay
-  },
   // 关于我
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   },
   // 留言
   {
     path :'/leaveComments',
     component:leaveComments
+  },
+  // 登录
+  {
+    path:"/login",
+    component:login
   }
 ]
 

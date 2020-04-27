@@ -1,15 +1,20 @@
 <template>
     <el-menu :default-active="this.$route.path"
-    class="el-menu-demo"
+    class="el-menu-demo mainbody"
     mode="horizontal"
     background-color="#C5CAE9"
     text-color="#606266"
     active-text-color="#00796B"
-    router> 
+    router>      
       <el-menu-item class="logo">FENG XIAOJING</el-menu-item>
-      <el-menu-item index="/">首页</el-menu-item>
+      <slot v-for="(item,index) in navData" :key="index">
+          <el-menu-item :index=item.url>
+            <i :class=item.icon></i>
+            <span slot="title">{{item.name}}</span>
+          </el-menu-item>
+        </slot>
 
-      <el-submenu index="/kinds">
+      <!-- <el-submenu index="/kinds">
         <template slot="title">分类</template>
         <el-submenu index="/kinds/basics">
           <template slot="title">basics</template>
@@ -41,21 +46,35 @@
           <template slot="title">other</template>
           <el-menu-item index="/kinds/other/doucument">doucument</el-menu-item>
         </el-submenu>
-      </el-submenu>
-      <el-menu-item index="/time">时间线</el-menu-item>
-      <el-menu-item index="/writeEssay">写文章</el-menu-item>
-      <el-menu-item index="/about">关于我</el-menu-item>
-      <el-menu-item index="/leaveComments">留言</el-menu-item>  
+      </el-submenu>  -->
+      <el-menu-item class="login" index="/login">登录</el-menu-item>
       
     </el-menu>
 
 </template>
+<script>
+export default {
+  props:['navData'],
+  data() {
+    return {
+           
+    }
+  },
+}
+</script>
 <style>
   .el-header{
     padding: 0px !important;
   }
   .logo{
     margin:0 30px !important;
+  }
+  .mainbody{
+    position: relative;
+  }
+  .login{
+    position: absolute;
+    right: 20px;
   }
 </style>
   

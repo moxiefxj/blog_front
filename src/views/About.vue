@@ -16,13 +16,13 @@
       
       <el-row class="basicimg">
           <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
-            <img src="../assets/img/email.jpg" alt="">
+            <!-- <img src="../assets/img/email.jpg" alt=""> -->
           </el-rol>
           <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
-            <img src="../assets/img/OTE0YTAw.png" alt="">
+            <!-- <img src="../assets/img/OTE0YTAw.png" alt=""> -->
           </el-rol>
           <el-rol :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">
-            <img src="../assets/img/fluidicon.png" alt="">
+            <!-- <img src="../assets/img/fluidicon.png" alt=""> -->
           </el-rol> 
       </el-row>
     </div>
@@ -32,31 +32,31 @@
       
       <el-row class="skills">
         <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">前端</el-col>
-        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="80"></el-progress></el-col>
-      </el-row>
-      <el-row class="skills">
-        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">java</el-col>
-        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="75"></el-progress></el-col>
-      </el-row>
-      <el-row class="skills">
-        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">node</el-col>
         <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress></el-col>
       </el-row>
       <el-row class="skills">
-        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">c语言</el-col>
-        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="65"></el-progress></el-col>
+        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">java</el-col>
+        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="60"></el-progress></el-col>
+      </el-row>
+      <el-row class="skills">
+        <el-col class="skill" :xs="{span:3,offset:5}" :sm="{span:2,offset:5}" :md="{span:1,offset:5}">node</el-col>
+        <el-col class="skill_value" :xs="{span:12,offset:0}" :sm="{span:12,offset:0}" :md="{span:12,offset:1}"><el-progress :text-inside="true" :stroke-width="26" :percentage="60"></el-progress></el-col>
       </el-row>
     </div>
     
     <!-- 项目经验 -->
-    <div class="aboutme">
+    <!-- <div class="aboutme">
       <p class="resume">项目经验</p>
       <el-row>
-        <el-col :span="12"></el-col>
-        <el-col :span="12"></el-col>
+        <el-col class="pro" :xs="{span:22,offset:1}" :sm="{span:11,offset:1}" :md="{span:10,offset:1}">
+          第一个
+        </el-col>
+        <el-col class="pro" :xs="{span:22,offset:1}" :sm="{span:11,offset:1}" :md="{span:10,offset:1}">
+          第二个
+        </el-col>
       </el-row>
       
-    </div>
+    </div> -->
     <!-- 其他信息 -->
     
     
@@ -103,7 +103,6 @@ export default {
     .basic{
       margin:0 auto;
       width:320px;
-      border:1px solid;
       text-align:left;
 
       /* margin-bottom: 30px;
@@ -118,5 +117,8 @@ export default {
       height: 5%;
       border-radius: 100%;
       margin-right: 20px;
+    }
+    .pro{
+      background: aquamarine;
     }
 </style>

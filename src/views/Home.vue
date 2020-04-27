@@ -7,7 +7,7 @@
     <el-row class="main" :gutter="20">
       <el-col :xs="{span:24,offset:0}" :sm="{span:16,offset:0}" :md="{span:16,offset:2}">
         <div class="essaylist" v-for="(item, index) in essaylist" :key="index">
-          <essay-com :item = 'item' :kind = 'kind' :like = 'like' :detail = 'detail'></essay-com>
+          <essay-com :item = 'item' :gokind = 'gokind' :like = 'like' :detail = 'detail'></essay-com>
         </div>
         </el-col>
       <el-col :xs="{span:0,offset:0}" :sm="{span:7,offset:0}" :md="{span:6,offset:0}" >
@@ -75,7 +75,7 @@ export default {
         path:'/p/'+id
       })
     },
-    kind : function(kind,kind_child){
+    gokind : function(kind,kind_child){
         this.$router.push({
         path:'/kinds/'+kind+'/'+kind_child
     })

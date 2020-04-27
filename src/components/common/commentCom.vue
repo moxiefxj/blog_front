@@ -65,8 +65,6 @@
       chooseimg(item,index){
         this.idx = index
         this.form.header = item.headerimg
-        console.log(item)
-        console.log(this)
       }
     },
   }
