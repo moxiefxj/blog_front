@@ -166,18 +166,11 @@ export default {
                         this.$message.error('请选择类别');
                         return;
                     }
-                    if (this.form.fileList.length <= 0) {
-                        this.$message.error("请上传封面");
-                        return;
-                    }
-                    if (this.form.fileSizeIsSatisfy) {
-                        this.$message.error("上传失败！存在文件大小超过2M！");
-                        return;
-                    }
                     if(this.form.context == '' || this.form.context.length <= 20){
                         this.$message.error("内容字有点少");
                         return;
                     }
+                    console.log(this.form)
                     this.essayreq.writeEssay(this.$http,this.form)
                 }
             })

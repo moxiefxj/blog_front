@@ -48,6 +48,16 @@ const routes = [
     },
     component:kinds
   },
+  // 时间线
+  {
+    path:"/time",
+    component:time,
+  },
+  // 写文章
+  {
+    path:"/writeEssay",
+    component:writeEssay,
+  },
   // 关于我
   {
     path: '/about',

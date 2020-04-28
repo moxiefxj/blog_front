@@ -13,40 +13,8 @@
             <span slot="title">{{item.name}}</span>
           </el-menu-item>
         </slot>
-
-      <!-- <el-submenu index="/kinds">
-        <template slot="title">分类</template>
-        <el-submenu index="/kinds/basics">
-          <template slot="title">basics</template>
-            <el-menu-item index="/kinds/basics/dataStrure">dataStrure</el-menu-item>
-            <el-menu-item index="/kinds/basics/net">net</el-menu-item>
-        </el-submenu>
-        <el-submenu index="/kinds/front">
-          <template slot="title">front</template>
-            <el-menu-item index="/kinds/front/vue">vue</el-menu-item>
-            <el-menu-item index="/kinds/front/css">css</el-menu-item>
-            <el-menu-item index="/kinds/front/js">js</el-menu-item>
-        </el-submenu>
-
-        <el-submenu index="/kinds/test">
-          <template slot="title">test</template>
-            <el-menu-item index="/kinds/test/unit">unit</el-menu-item>
-            <el-menu-item index="/kinds/test/performance">performance</el-menu-item>
-            <el-menu-item index="/kinds/text/box">box</el-menu-item>
-        </el-submenu>
-
-        <el-submenu index="/kinds/back">
-          <template slot="title">back</template>
-            <el-menu-item index="/kinds/back/ssm">ssm</el-menu-item>
-            <el-menu-item index="/kinds/back/springboot">springboot</el-menu-item>
-            <el-menu-item index="/kinds/back/node">node</el-menu-item>
-        </el-submenu>
-
-        <el-submenu index="/kinds/other">
-          <template slot="title">other</template>
-          <el-menu-item index="/kinds/other/doucument">doucument</el-menu-item>
-        </el-submenu>
-      </el-submenu>  -->
+      <el-menu-item index="/time"><i class="el-icon-timer"></i>时间线</el-menu-item>
+      
       <el-menu-item class="login" index="/login">登录</el-menu-item>
       
     </el-menu>
@@ -54,12 +22,7 @@
 </template>
 <script>
 export default {
-  props:['navData'],
-  data() {
-    return {
-           
-    }
-  },
+  props:['navData']
 }
 </script>
 <style>
