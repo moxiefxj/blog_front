@@ -11,7 +11,7 @@
       <router-view/>
     </el-main>
     <!-- 底部 -->
-    <el-footer>
+    <el-footer class="footer">
       <footer-com></footer-com>
     </el-footer>
   </el-container>
@@ -71,7 +71,7 @@ import footerCom from './components/footerCom'
     methods: {
       page_width() {//获取屏幕宽度
         let screenWidth = window.screen.width;
-        if (screenWidth < 780) {
+        if (screenWidth < 900) {
           this.fullWidth = false;
         } else {
           this.fullWidth = true;
@@ -80,5 +80,10 @@ import footerCom from './components/footerCom'
     },
   }
 </script>
+<style>
+  .footer{
+    padding: 0 !important;
+  }
+</style>
   
 

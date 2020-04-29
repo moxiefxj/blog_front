@@ -54,10 +54,10 @@ const routes = [
     component:time,
   },
   // 写文章
-  {
-    path:"/writeEssay",
-    component:writeEssay,
-  },
+  // {
+  //   path:"/writeEssay",
+  //   component:writeEssay,
+  // },
   // 关于我
   {
     path: '/about',

@@ -1,17 +1,21 @@
 <template>
     <div id="login">
-            <el-form :rules="rules" :model="form" ref="form" label-width="80px">
-                <el-form-item label="手机号" prop='tel'>
-                    <el-input class="input" v-model="form.number" placeholder="手机号"></el-input>
-                </el-form-item>
-                <el-form-item label="密码" prop='pwd'>
-                    <el-input class="input" v-model="form.password" placeholder="密码"></el-input>
-                </el-form-item>
-                <el-form-item label="">
-                    <el-button type="primary" @click="submitForm('form')">登录</el-button>
-                    <el-button @click="resetForm('form')">回到主页</el-button>
-                </el-form-item> 
-            </el-form>
+        <el-row>
+            <el-col :xs="{span:20,offset:3}" :sm="{span:10,offset:7}" :md="{span:10,offset:9}">
+                <el-form :rules="rules" :model="form" ref="form" label-width="80px">
+                    <el-form-item label="手机号" prop='tel'>
+                        <el-input class="input" v-model="form.number" placeholder="手机号"></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码" prop='pwd'>
+                        <el-input class="input" v-model="form.password" placeholder="密码"></el-input>
+                    </el-form-item>
+                    <el-form-item label="">
+                        <el-button type="primary" @click="submitForm('form')">登录</el-button>
+                        <el-button @click="resetForm('form')">回到主页</el-button>
+                    </el-form-item> 
+                </el-form>
+            </el-col>
+        </el-row>
     </div>
 </template>
 <script>
