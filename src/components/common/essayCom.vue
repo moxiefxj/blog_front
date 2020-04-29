@@ -31,7 +31,7 @@
                 </el-col>
                 <!-- 喜欢 -->
                 <el-col :xs="{span:6,offset:0}" :sm="{span:5,offset:0}" :md="{span:4,offset:0}">
-                    <el-link :plain = "true" @click="like(item.id)" icon="el-icon-thumb" :underline="false">点赞{{item.like}}</el-link>
+                    <el-link :plain = "true" @click="like(item)" icon="el-icon-thumb" :underline="false">点赞{{item.like}}</el-link>
                 </el-col> 
               </el-row>
           </el-col>

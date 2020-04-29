@@ -80,15 +80,15 @@ export default {
         path:'/kinds/'+kind+'/'+kind_child
     })
     },
-    like :async function(id){
-      let res = await this.operation.like(this.$http,id)
+    like :async function(item){
+      let res = await this.operation.like(this.$http,item.id)
       if(res.data.status == 0){
         // 已经点过赞
         this.$message('已经点过赞了哟(＾Ｕ＾)ノ~ＹＯ');
       }
       else{
         // 未点过赞,赞+1；
-        this.item.like = this.item.like +1
+        item.like = item.like + 1;
         this.$message('蟹蟹~ 你的喜欢(❤ ω ❤)');
       }
     }
