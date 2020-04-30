@@ -3,12 +3,12 @@
     <el-container>
       <!-- 导航栏 -->
     <el-header>
-      <nav-com v-if="fullWidth" :navData = "navData"></nav-com>
+      <nav-com v-if="fullWidth" :navData = "navData" :loginData = 'loginData'></nav-com>
       <navp-com v-else :navData = "navData"></navp-com> 
     </el-header>
     <!-- 主体 -->
     <el-main>
-      <router-view/>
+      <router-view :changeButton = "changeButton"/>
     </el-main>
     <!-- 底部 -->
     <el-footer class="footer">
@@ -34,7 +34,7 @@ import footerCom from './components/footerCom'
       return {
         fullWidth: true,
         navData:[
-          {
+            {
                 name: "首页",
                 url: "/",
                 icon: "el-icon-menu"
@@ -60,6 +60,10 @@ import footerCom from './components/footerCom'
                 icon: "el-icon-collection"
             }
         ],
+        loginData:{
+          url:"/login",
+          name:'登录',
+        }
       }
     },
     mounted() {
@@ -76,6 +80,10 @@ import footerCom from './components/footerCom'
         } else {
           this.fullWidth = true;
         }
+      },
+      changeButton(name){
+        this.loginData.url = '/about'
+        this.loginData.name = name
       }
     },
   }

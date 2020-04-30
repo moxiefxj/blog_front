@@ -77,8 +77,8 @@ export default {
     },
     gokind : function(kind,kind_child){
         this.$router.push({
-        path:'/kinds/'+kind+'/'+kind_child
-    })
+          path:'/kinds/'+kind+'/'+kind_child
+        })
     },
     like :async function(item){
       let res = await this.operation.like(this.$http,item.id)

@@ -1,63 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import leaveComments from '../views/leaveComments.vue'
-import essay from '../views/essay.vue'
-import kinds from '../views/kinds.vue'
-import time from '../views/time.vue'
-import writeEssay from '../views/writeEssay.vue';
-import login from "../views/login.vue";
-import tech from "../views/tech.vue"
-import note from "../views/note.vue"
+const essay = ()=> ('../views/essay.vue')
+const kinds = ()=> ('../views/kinds.vue')
 
 Vue.use(VueRouter)
 
-const routes = [
+// 初始化路由
+const initroutes = [
   // 首页
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   // 文章页
   {
     path:'/p/:id',
     name:essay,
-    component:essay,
+    component:()=> import('../views/essay.vue'),
   },
   // 技术
   {
     path:"/tech",
-    component:tech,
+    component:()=> import("../views/tech.vue"),
   },
   // 日常
   {
     path:"/note",
-    component:note,
+    component:()=> import("../views/note.vue"),
   },
   // 分类
   {
     path:'/kinds/:kind/:kind_child',
     name:kinds,
     props:function(route){
-      console.log(route)
       return{
         kind : route.params.kind,
         kind_child : route.params.kind_child,
       }
     },
-    component:kinds
+    component:()=> import('../views/kinds.vue')
   },
   // 时间线
   {
     path:"/time",
-    component:time,
+    component:()=> import('../views/time.vue'),
   },
-  // 写文章
-  // {
-  //   path:"/writeEssay",
-  //   component:writeEssay,
-  // },
   // 关于我
   {
     path: '/about',
@@ -67,19 +55,28 @@ const routes = [
   // 留言
   {
     path :'/leaveComments',
-    component:leaveComments
+    component:() => import('../views/leaveComments.vue')
   },
   // 登录
   {
     path:"/login",
-    component:login
+    component:()=> import("../views/login.vue")
+  },
+  {
+    path:'*',
+    component:()=>import('../views/404.vue')
   }
 ]
+export const  menu = {
+  "写文章":{
+    path:"/writeEssay",
+    component:() =>import('../views/writeEssay.vue'),
+    meta:{role:['0'],nav:true}
+  },
+}
 
-const router = new VueRouter({
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes: initroutes
 })
-
-export default router
