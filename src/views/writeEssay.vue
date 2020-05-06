@@ -14,25 +14,9 @@
             </el-form-item>
             
             <el-form-item label="文章图片">
-                <el-upload
-                    with-credentials = 'true'
-                    :on-change="loadJsonFromFile"
-                    class="avatar-uploader"
-                    :action="$http.defaults.baseURL + '/upload'"
-                    :on-preview="handlePreview"
-                    :on-remove="handleRemove"
-                    
-                    :file-list="form.fileList"
-                    list-type="picture">
-                    <el-button size="small" type="primary">点击上传</el-button>
-                </el-upload>
-                <!-- <el-upload
-                    class="avatar-uploader"
-                    :action="$http.defaults.baseURL + '/upload'"
-                    :show-file-list="false"
-                    :on-success="afterUpload"
-                >
-                </el-upload> -->
+                <!-- 图片url -->
+                <el-input v-model="form.url" placeholder="文章图片url"></el-input>
+                
             </el-form-item>
             <el-form-item label="内容">
                 <mavon-editor v-model="form.context" :toolbars="toolbars" />
@@ -54,7 +38,7 @@ export default {
                 context: ' ',//输入的数据
                 title:'',
                 tag:'',
-                fileList: [],
+                url:'',
             },
             fileSizeIsSatisfy:'',
             rules:{
@@ -148,19 +132,8 @@ export default {
     beforeMount() {
     },
     methods: {
-        loadJsonFromFile(file, fileList) {
-            this.form.fileList = fileList[0].raw
-            // 限制文件大小
-            var sizeIsSatisfy = file.size < 2 * 1024 * 1024 ? true : false;
-            if (sizeIsSatisfy) {
-                return true;
-            } else {
-                this.fileSizeIsSatisfy = true;
-                return false;
-            }
-        },
         submitMsg(formName){
-            this.$refs[formName].validate((valid) => {
+            this.$refs[formName].validate( async (valid) => {
                 if(valid){
                     if(this.form.tag == ''){
                         this.$message.error('请选择类别');
@@ -170,8 +143,12 @@ export default {
                         this.$message.error("内容字有点少");
                         return;
                     }
-                    console.log(this.form)
-                    this.essayreq.writeEssay(this.$http,this.form)
+                    if(this.form.url == ''){
+                        this.$message.error('请添加图片');
+                        return;
+                    }
+                    let res = await this.essayreq.writeEssay(this.$http,this.form)
+                    console.log(res)
                 }
             })
         },

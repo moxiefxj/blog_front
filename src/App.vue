@@ -58,7 +58,12 @@ import footerCom from './components/footerCom'
                 name: "留言",
                 url: "/leavecomments",
                 icon: "el-icon-collection"
-            }
+            },
+            // {
+            //     name: "写文章",
+            //     url: "/writeEssay",
+            //     icon: "el-icon-collection"
+            // }
         ],
         loginData:{
           url:"/login",

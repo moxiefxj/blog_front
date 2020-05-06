@@ -12,10 +12,10 @@
             </el-col>
             
         </el-row>
-        
+
     </div>
 </template>
-<style>
+<style scoped>
     .errorTxt::after{
         position: absolute;
         width:0;

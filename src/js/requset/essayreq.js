@@ -22,8 +22,6 @@ class essayreq{
     }
     // 写入文章到数据库中
     async writeEssay(http,form){
-        console.log("进来了")
-        console.log(form)
         return http.get('/essay/write',{
             params:{
                 ...form

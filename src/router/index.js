@@ -57,15 +57,19 @@ const initroutes = [
     path :'/leaveComments',
     component:() => import('../views/leaveComments.vue')
   },
-  // 登录
-  {
-    path:"/login",
-    component:()=> import("../views/login.vue")
-  },
+  // // 登录
+  // {
+  //   path:"/login",
+  //   component:()=> import("../views/login.vue")
+  // },
   {
     path:'*',
     component:()=>import('../views/404.vue')
-  }
+  },
+  // {
+  //   path:"/writeEssay",
+  //   component:() =>import('../views/writeEssay.vue'),
+  // }
 ]
 export const  menu = {
   "写文章":{

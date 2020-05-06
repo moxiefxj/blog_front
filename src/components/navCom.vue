@@ -15,14 +15,14 @@
         </slot>
       <el-menu-item index="/time"><i class="el-icon-timer"></i>时间线</el-menu-item>
       
-      <el-menu-item class="login" :index=loginData.url>{{loginData.name}}</el-menu-item>
+      <!-- <el-menu-item class="login" :index=loginData.url>{{loginData.name}}</el-menu-item> -->
       
     </el-menu>
 
 </template>
 <script>
 export default {
-  props:['navData','loginData']
+  props:['navData','loginData'],
 }
 </script>
 <style>
