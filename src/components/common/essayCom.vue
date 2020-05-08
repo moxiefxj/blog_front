@@ -44,8 +44,8 @@ export default {
     props:['item','gokind','like','detail'],
     watch: {
       data(val,newval){
-        console.log(val)
-        console.log(newval)
+        // console.log(val)
+        // console.log(newval)
       }
     },
 }

@@ -148,7 +148,7 @@ export default {
                         return;
                     }
                     let res = await this.essayreq.writeEssay(this.$http,this.form)
-                    console.log(res)
+                    // console.log(res)
                 }
             })
         },

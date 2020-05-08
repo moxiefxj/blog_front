@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <el-row class="slideshow">
-      <slide-com></slide-com>
+      <slide-com :essaylist="essaylist" :detail="detail"></slide-com>
     </el-row>
     
     <el-row class="main" :gutter="20">
@@ -59,7 +59,7 @@ export default {
     get_high_quality_essaylist: async function(){
       let res = await this.essayreq.get_high_quality_essaylist(this.$http)
       this.high_quality_essaylist = res.data
-      console.log(this.high_quality_essaylist)
+      // console.log(this.high_quality_essaylist)
       for (let item in this.high_quality_essaylist) {
         let title = this.high_quality_essaylist[item].title
         if (title.length > 10) {
